@@ -38,7 +38,7 @@ app.get("/api/contacts", function (req, res) {
     app.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY', function (req2, res2) {
         docs2 = res2.status(200).json(docs);
     });
-    res.status(200).json(docs2);
+    res=docs2;
 });
 
 
