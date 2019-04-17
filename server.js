@@ -12,6 +12,7 @@ var mongodb = require("mongodb");
 var app = express();
 
 var docs = { test: "testing" };
+var docs2 = {};
 
 app.use(bodyParser.json());
 
@@ -34,5 +35,28 @@ function handleError(res, reason, message, code) {
  *    GET: finds all contacts
  *    POST: creates a new contact */
 app.get("/api/contacts", function (req, res) {
-    res.status(200).json(docs);
+    app.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY', function (req2, res2) {
+        docs2 = res2.status(200).json(docs);
+    });
+    res.status(200).json(docs2);
 });
+
+
+
+
+
+// var options = {
+//     host: url,
+//     port: 80,
+//     path: '/resource?id=foo&bar=baz',
+//     method: 'POST'
+//   };
+
+//   http.request(options, function(res) {
+//     console.log('STATUS: ' + res.statusCode);
+//     console.log('HEADERS: ' + JSON.stringify(res.headers));
+//     res.setEncoding('utf8');
+//     res.on('data', function (chunk) {
+//       console.log('BODY: ' + chunk);
+//     });
+//   }).end();
