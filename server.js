@@ -32,7 +32,7 @@ function handleError(res, reason, message, code) {
 }
 
 function callNasa() {
-    return docs2;
+    return { test: "callNasa" };
 }
 
 /*  "/api/contacts"
@@ -43,7 +43,7 @@ app.get("/api/contacts", function (req, res) {
     //     docs2 = res2.status(200).json(docs);
     // });
     // res.status(200).json(docs);
-    res.status(200).json(docs);
+    res.status(200).json(callNasa());
 });
 
 
