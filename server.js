@@ -39,7 +39,11 @@ function callNasa() {
  *    GET: finds all contacts
  *    POST: creates a new contact */
 app.get("/api/contacts", function (req, res) {
-    res = callNasa();
+    // app.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY', function (req2, res2) {
+    //     docs2 = res2.status(200).json(docs);
+    // });
+    // res.status(200).json(docs);
+    res = docs2;
 });
 
 
