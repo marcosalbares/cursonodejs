@@ -43,7 +43,7 @@ app.get("/api/contacts", function (req, res) {
     //     docs2 = res2.status(200).json(docs);
     // });
     // res.status(200).json(docs);
-    res = docs2;
+    res.status(200).json(docs);
 });
 
 
