@@ -12,7 +12,7 @@ var mongodb = require("mongodb");
 var app = express();
 
 var docs = { test: "testing" };
-var docs2 = {};
+var docs2 = { test2: "testing2" };
 
 app.use(bodyParser.json());
 
@@ -31,14 +31,15 @@ function handleError(res, reason, message, code) {
     res.status(code || 500).json({ "error": message });
 }
 
+function callNasa() {
+    return docs2;
+}
+
 /*  "/api/contacts"
  *    GET: finds all contacts
  *    POST: creates a new contact */
 app.get("/api/contacts", function (req, res) {
-    app.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY', function (req2, res2) {
-        docs2 = res2.status(200).json(docs);
-    });
-    res=docs2;
+    res = callNasa();
 });
 
 
